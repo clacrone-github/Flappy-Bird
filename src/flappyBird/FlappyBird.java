@@ -204,6 +204,10 @@ public class FlappyBird implements ActionListener, MouseListener, KeyListener {
 		renderer.repaint();
 	}
 	
+	public static FlappyBird getFlappyBird() {
+		return flappyBird;
+	}
+	
 	@Override
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub

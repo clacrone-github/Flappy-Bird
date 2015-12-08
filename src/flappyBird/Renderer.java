@@ -16,6 +16,6 @@ public class Renderer extends JPanel {
 		// TODO Auto-generated method stub
 		super.paintComponent(g);
 		
-		FlappyBird.flappyBird.repaint(g);
+		FlappyBird.getFlappyBird().repaint(g);
 	}
 }
