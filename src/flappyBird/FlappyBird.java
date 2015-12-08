@@ -47,30 +47,33 @@ public class FlappyBird implements ActionListener, MouseListener, KeyListener {
 		jframe.setVisible(true);
 		jframe.setTitle("Flappy Bird");
 		
-		bird = new Rectangle(WIDTH / 2 - 10, HEIGHT / 2 - 10, 20, 20);
-		columns = new ArrayList<Rectangle>();
-		
-		addColumn(true);
-		addColumn(true);
-		addColumn(true);
-		addColumn(true);
+		gameSetup(true);
 		
 		timer.start();
 	}
 	
+	public void gameSetup(boolean newColumns) {
+		bird = new Rectangle(WIDTH / 2 - 10, HEIGHT / 2 - 10, 20, 20);
+		
+		yMotion = 0;
+		score = 0;
+		gameOver = false;
+		
+		if (newColumns) {
+			columns = new ArrayList<Rectangle>();
+		} else {
+			columns.clear();
+		}
+		
+		addColumn(true);
+		addColumn(true);
+		addColumn(true);
+		addColumn(true);
+	}
+	
 	public void jump() {
 		if (gameOver) {
-			bird = new Rectangle(WIDTH / 2 - 10, HEIGHT / 2 - 10, 20, 20);
-			columns.clear();
-			yMotion = 0;
-			score = 0;
-			
-			addColumn(true);
-			addColumn(true);
-			addColumn(true);
-			addColumn(true);
-
-			gameOver = false;
+			gameSetup(false);
 		}
 		
 		if (!started) {
